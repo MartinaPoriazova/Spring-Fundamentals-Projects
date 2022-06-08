@@ -1,9 +1,9 @@
 package bg.softuni.mobilele.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "brands")
@@ -12,11 +12,12 @@ public class BrandEntity extends BaseEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column(name = "created")
     private LocalDateTime created;
 
-    @Column(name = "modified")
     private LocalDateTime modified;
+
+    @OneToMany(mappedBy = "brand", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<ModelEntity> models = new ArrayList<>();
 
     public BrandEntity() {
     }
@@ -43,5 +44,23 @@ public class BrandEntity extends BaseEntity {
 
     public void setModified(LocalDateTime modified) {
         this.modified = modified;
+    }
+
+    public List<ModelEntity> getModels() {
+        return models;
+    }
+
+    public void setModels(List<ModelEntity> models) {
+        this.models = models;
+    }
+
+    @Override
+    public String toString() {
+        return "BrandEntity{" +
+                "name='" + name + '\'' +
+                ", created=" + created +
+                ", modified=" + modified +
+                ", models=" + models +
+                '}';
     }
 }

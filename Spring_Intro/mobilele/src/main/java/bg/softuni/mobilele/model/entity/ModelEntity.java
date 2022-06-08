@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Table(name = "models")
 public class ModelEntity extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column( nullable = false)
     private String name;
 
     @Column(nullable = false)
@@ -25,10 +25,8 @@ public class ModelEntity extends BaseEntity {
     @Column(name = "end_year")
     private Long endYear;
 
-    @Column(name = "created")
     private LocalDateTime created;
 
-    @Column(name = "modified")
     private LocalDateTime modified;
 
     @ManyToOne
@@ -99,5 +97,19 @@ public class ModelEntity extends BaseEntity {
 
     public void setBrand(BrandEntity brand) {
         this.brand = brand;
+    }
+
+    @Override
+    public String toString() {
+        return "ModelEntity{" +
+                "name='" + name + '\'' +
+                ", category=" + category +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", startYear=" + startYear +
+                ", endYear=" + endYear +
+                ", created=" + created +
+                ", modified=" + modified +
+                ", brand=" + (brand != null ? brand.getName() : null) +
+                '}';
     }
 }
