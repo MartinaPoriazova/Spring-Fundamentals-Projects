@@ -9,16 +9,18 @@ public class UserLoginDTO {
         return username;
     }
 
-    public void setUsername(String username) {
+    public UserLoginDTO setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public UserLoginDTO setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     @Override

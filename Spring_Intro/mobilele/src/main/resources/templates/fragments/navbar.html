@@ -1,16 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>MobiLeLeLe</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <script src="/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-
 <body>
 
 <div>
@@ -45,33 +41,25 @@
                         <a class="dropdown-item" href="/">Something else here</a>
                     </div>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" th:if="${@currentUser.isLoggedIn()}">
                     <div class="form-inline my-2 my-lg-0 border px-3">
                         <div class="logged-user"
                              text="Welcome, Gosho"></div>
-                        <a class="nav-link" href="/users/logout">Logout</a>
+                        <a class="nav-link" th:href="@{/users/logout}">Logout</a>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/register">Register</a>
+                <li class="nav-item" th:if="${@currentUser.isAnonymous()}">
+                    <a class="nav-link" th:href="@{/users/register}">Register</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/login">Login</a>
+                <li class="nav-item" th:if="${@currentUser.isAnonymous()}">
+                    <a class="nav-link" th:href="@{/users/login}">Login</a>
                 </li>
 
             </ul>
         </div>
     </nav>
-</div>
 
-
-<div class="container-fluid">
-    <h5 class="text-center text-white mt-5">Welcome to MobiLeLeLe</h5>
-</div>
-
-<div>
-    <footer> </footer>
 </div>
 
 </body>
