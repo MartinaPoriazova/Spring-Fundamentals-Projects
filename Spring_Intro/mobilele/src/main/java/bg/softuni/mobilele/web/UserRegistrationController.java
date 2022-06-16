@@ -33,12 +33,9 @@ public class UserRegistrationController {
     }
 
     @PostMapping("/register")
-    public String register(@Valid UserRegisterDTO userModel,
-                           BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes) {
+    public String register(@Valid UserRegisterDTO userModel, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-
             redirectAttributes.addFlashAttribute("userModel", userModel);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userModel", bindingResult);
             return "redirect:/users/register";
