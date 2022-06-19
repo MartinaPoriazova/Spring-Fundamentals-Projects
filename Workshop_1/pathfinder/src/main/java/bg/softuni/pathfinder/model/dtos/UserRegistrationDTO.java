@@ -1,13 +1,33 @@
 package bg.softuni.pathfinder.model.dtos;
 
+import javax.validation.constraints.*;
+
 public class UserRegistrationDTO {
 
+    @NotNull
+    @Size(min = 5, max = 20)
     private String username;
-    private String fullName;
+
+    @NotNull
+    @Size(min = 5, max = 20)
+    private String fullname;
+
+    @NotNull
+    @Email
     private String email;
+
+    @NotNull
+    @Min(0)
+    @Max(90)
     private int age;
+
+    @NotNull
+    @Size(min = 5, max = 20)
     private String password;
-    private String confirmedPassword;
+
+    @NotNull
+    @Size(min = 5, max = 20)
+    private String confirmPassword;
 
     public UserRegistrationDTO() {
     }
@@ -21,12 +41,12 @@ public class UserRegistrationDTO {
         return this;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public UserRegistrationDTO setFullName(String fullName) {
-        this.fullName = fullName;
+    public UserRegistrationDTO setFullname(String fullname) {
+        this.fullname = fullname;
         return this;
     }
 
@@ -57,12 +77,12 @@ public class UserRegistrationDTO {
         return this;
     }
 
-    public String getConfirmedPassword() {
-        return confirmedPassword;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public UserRegistrationDTO setConfirmedPassword(String confirmedPassword) {
-        this.confirmedPassword = confirmedPassword;
+    public UserRegistrationDTO setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
         return this;
     }
 
@@ -70,11 +90,11 @@ public class UserRegistrationDTO {
     public String toString() {
         return "UserRegistrationDTO{" +
                 "username='" + username + '\'' +
-                ", fullName='" + fullName + '\'' +
+                ", fullname='" + fullname + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", password='" + password + '\'' +
-                ", confirmedPassword='" + confirmedPassword + '\'' +
+                ", confirmedPassword='" + confirmPassword + '\'' +
                 '}';
     }
 }
