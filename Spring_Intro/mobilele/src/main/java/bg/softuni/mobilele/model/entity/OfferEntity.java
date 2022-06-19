@@ -131,4 +131,5 @@ public class OfferEntity extends BaseEntity{
                 ", seller=" + seller +
                 '}';
     }
+
 }
