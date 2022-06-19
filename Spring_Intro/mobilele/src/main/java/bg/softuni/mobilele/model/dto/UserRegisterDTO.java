@@ -1,6 +1,6 @@
 package bg.softuni.mobilele.model.dto;
 
-import bg.softuni.mobilele.model.entity.validation.UniqueUserEmail;
+import bg.softuni.mobilele.model.validation.UniqueUserEmail;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

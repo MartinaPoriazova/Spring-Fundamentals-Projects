@@ -16,5 +16,4 @@ public class OfferController {
         return "offer-add";
     }
 
-
 }

@@ -36,4 +36,5 @@ public class CurrentUser {
         loggedIn = false;
         name = null;
     }
+
 }

@@ -30,4 +30,5 @@ public class UserLoginDTO {
                 ", password='" + (password != null ? "[PROVIDED]" : null) + '\'' +
                 '}';
     }
+
 }

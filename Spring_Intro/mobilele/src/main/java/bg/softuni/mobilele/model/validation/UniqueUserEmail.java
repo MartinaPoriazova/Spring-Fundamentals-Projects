@@ -1,4 +1,4 @@
-package bg.softuni.mobilele.model.entity.validation;
+package bg.softuni.mobilele.model.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

@@ -17,7 +17,6 @@ import java.util.Optional;
 public class UserService {
 
     private Logger LOGGER = LoggerFactory.getLogger(UserService.class);
-
     private UserRepository userRepository;
     private CurrentUser currentUser;
     private PasswordEncoder passwordEncoder;

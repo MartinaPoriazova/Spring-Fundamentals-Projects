@@ -1,4 +1,4 @@
-package bg.softuni.mobilele.model.entity.validation;
+package bg.softuni.mobilele.model.validation;
 
 import bg.softuni.mobilele.repository.UserRepository;
 
