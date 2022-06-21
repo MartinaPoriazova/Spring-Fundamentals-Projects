@@ -67,4 +67,5 @@ public class AddOfferDTO {
         this.modelId = modelId;
         return this;
     }
+
 }
