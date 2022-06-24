@@ -5,8 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "ships")
-public class Ships {
-
+public class Ship {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,20 +19,20 @@ public class Ships {
 
     private LocalDate created;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
     @ManyToOne
     private User user;
 
-    public Ships() {
+    public Ship() {
     }
 
     public long getId() {
         return id;
     }
 
-    public Ships setId(long id) {
+    public Ship setId(long id) {
         this.id = id;
         return this;
     }
@@ -42,7 +41,7 @@ public class Ships {
         return name;
     }
 
-    public Ships setName(String name) {
+    public Ship setName(String name) {
         this.name = name;
         return this;
     }
@@ -51,7 +50,7 @@ public class Ships {
         return health;
     }
 
-    public Ships setHealth(long health) {
+    public Ship setHealth(long health) {
         this.health = health;
         return this;
     }
@@ -60,7 +59,7 @@ public class Ships {
         return power;
     }
 
-    public Ships setPower(long power) {
+    public Ship setPower(long power) {
         this.power = power;
         return this;
     }
@@ -69,7 +68,7 @@ public class Ships {
         return created;
     }
 
-    public Ships setCreated(LocalDate created) {
+    public Ship setCreated(LocalDate created) {
         this.created = created;
         return this;
     }
@@ -78,7 +77,7 @@ public class Ships {
         return category;
     }
 
-    public Ships setCategory(Category category) {
+    public Ship setCategory(Category category) {
         this.category = category;
         return this;
     }
@@ -87,7 +86,7 @@ public class Ships {
         return user;
     }
 
-    public Ships setUser(User user) {
+    public Ship setUser(User user) {
         this.user = user;
         return this;
     }

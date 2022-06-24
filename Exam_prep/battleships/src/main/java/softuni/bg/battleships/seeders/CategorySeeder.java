@@ -1,4 +1,5 @@
-package softuni.bg.battleships;
+package softuni.bg.battleships.seeders;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -8,11 +9,13 @@ import softuni.bg.battleships.models.enums.ShipType;
 import softuni.bg.battleships.repositories.CategoryRepository;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class CategorySeeder implements CommandLineRunner {
 
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
     public CategorySeeder(CategoryRepository categoryRepository) {
@@ -22,9 +25,12 @@ public class CategorySeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         if (this.categoryRepository.count() == 0) {
-            Arrays.stream(ShipType.values())
+            List<Category> categories = Arrays.stream(ShipType.values())
                     .map(Category::new)
-                    .forEach(category -> this.categoryRepository.save(category));
+                    .collect(Collectors.toList());
+
+            this.categoryRepository.saveAll(categories);
+            // n + 1 queries problem
         }
     }
 }
