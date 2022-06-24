@@ -1,7 +1,7 @@
 package bg.softuni.mobilele.model.dto;
 
-import bg.softuni.mobilele.model.entity.enums.EngineEnum;
-import bg.softuni.mobilele.model.entity.enums.TransmissionEnum;
+import bg.softuni.mobilele.model.enums.EngineEnum;
+import bg.softuni.mobilele.model.enums.TransmissionEnum;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;

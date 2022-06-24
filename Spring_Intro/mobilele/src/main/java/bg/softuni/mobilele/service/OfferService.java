@@ -33,15 +33,13 @@ public class OfferService {
     }
 
     public void addOffer(AddOfferDTO addOfferDTO) {
-        OfferEntity newOffer = offerMapper.
-                addOfferDtoToOfferEntity(addOfferDTO);
+        OfferEntity newOffer = offerMapper.addOfferDtoToOfferEntity(addOfferDTO);
 
         // TODO - current user should be logged in
-        UserEntity seller = userRepository.findByEmail(currentUser.getEmail()).
-                orElseThrow();
 
-        ModelEntity model = modelRepository.findById(addOfferDTO.getModelId()).
-                orElseThrow();
+        UserEntity seller = userRepository.findByEmail(currentUser.getEmail()).orElseThrow();
+
+        ModelEntity model = modelRepository.findById(addOfferDTO.getModelId()).orElseThrow();
 
         newOffer.setModel(model);
         newOffer.setSeller(seller);

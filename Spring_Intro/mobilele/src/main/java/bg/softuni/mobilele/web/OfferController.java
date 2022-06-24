@@ -18,8 +18,7 @@ public class OfferController {
     private final OfferService offerService;
     private final BrandService brandService;
 
-    public OfferController(OfferService offerService,
-                           BrandService brandService) {
+    public OfferController(OfferService offerService, BrandService brandService) {
         this.offerService = offerService;
         this.brandService = brandService;
     }
@@ -52,6 +51,7 @@ public class OfferController {
         }
 
         //TODO
+
         offerService.addOffer(addOfferModel);
 
         return "redirect:/offers/all";
