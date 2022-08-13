@@ -44,9 +44,9 @@ public class ShipService {
         }
 
         ShipType type = switch (createShipDTO.getCategory()) {
-            case 0 -> ShipType.BATTLE;
-            case 1 -> ShipType.CARGO;
-            case 2 -> ShipType.PATROL;
+            case 1 -> ShipType.BATTLE;
+            case 2 -> ShipType.CARGO;
+            case 3 -> ShipType.PATROL;
             default -> ShipType.BATTLE;
         };
 
