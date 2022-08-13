@@ -7,6 +7,7 @@ import bg.softuni.coffeeshop.repository.UserRepository;
 import bg.softuni.coffeeshop.session.LoggedUser;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
@@ -40,6 +41,7 @@ public class AuthService {
         user.setLastName(registerDTO.getLastName());
         user.setPassword(registerDTO.getPassword());
         user.setEmail(registerDTO.getEmail());
+        user.setOrders(new ArrayList<>());
 
         this.userRepository.save(user);
 

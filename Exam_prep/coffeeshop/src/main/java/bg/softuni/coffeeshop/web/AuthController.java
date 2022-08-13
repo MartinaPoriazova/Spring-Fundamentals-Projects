@@ -21,12 +21,12 @@ public class AuthController {
     }
 
     @ModelAttribute("registerDTO")
-    public UserRegisterDTO initUserRegisterDTO() {
+    public UserRegisterDTO initRegisterDTO() {
         return new UserRegisterDTO();
     }
 
     @ModelAttribute("loginDTO")
-    public UserLoginDTO initUserLoginDTO() {
+    public UserLoginDTO initLoginDTO() {
         return new UserLoginDTO();
     }
 
@@ -50,10 +50,11 @@ public class AuthController {
         if (bindingResult.hasErrors() || !this.authService.register(registerDTO)) {
             redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.registrationDTO", bindingResult);
+                    "org.springframework.validation.BindingResult.registerDTO", bindingResult);
 
             return "redirect:/register";
         }
+
 
 //        // unique username
 //        if (authService.existsByUsername(registerDTO.getUsername())) {

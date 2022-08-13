@@ -82,4 +82,16 @@ public class UserRegisterDTO {
         this.confirmPassword = confirmPassword;
         return this;
     }
+
+    @Override
+    public String toString() {
+        return "UserRegisterDTO{" +
+                "username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                '}';
+    }
 }
