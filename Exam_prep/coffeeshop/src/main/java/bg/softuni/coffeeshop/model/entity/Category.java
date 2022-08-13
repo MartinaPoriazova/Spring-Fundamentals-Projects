@@ -1,6 +1,6 @@
 package bg.softuni.coffeeshop.model.entity;
 
-import bg.softuni.coffeeshop.model.enums.CategoryEnum;
+import bg.softuni.coffeeshop.model.enums.CategoryTypeEnum;
 
 import javax.persistence.*;
 
@@ -14,7 +14,7 @@ public class Category {
 
     @Enumerated(EnumType.STRING)
     @Column(unique = true, nullable = false)
-    private CategoryEnum name;
+    private CategoryTypeEnum name;
 
     @Column(name = "needed_time", nullable = false)
     private int neededTime;
@@ -22,7 +22,7 @@ public class Category {
     public Category() {
     }
 
-    public Category(CategoryEnum name) {
+    public Category(CategoryTypeEnum name) {
         this.name = name;
     }
 
@@ -35,11 +35,11 @@ public class Category {
         return this;
     }
 
-    public CategoryEnum getName() {
+    public CategoryTypeEnum getName() {
         return name;
     }
 
-    public Category setName(CategoryEnum name) {
+    public Category setName(CategoryTypeEnum name) {
         this.name = name;
         return this;
     }

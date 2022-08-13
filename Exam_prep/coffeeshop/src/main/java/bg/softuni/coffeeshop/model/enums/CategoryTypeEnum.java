@@ -1,5 +1,5 @@
 package bg.softuni.coffeeshop.model.enums;
 
-public enum CategoryEnum {
+public enum CategoryTypeEnum {
     COFFEE, CAKE, DRINK, OTHER
 }
