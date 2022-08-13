@@ -4,7 +4,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class UserLoginDTO {
-
     @NotBlank
     @Size(min = 5, max = 20)
     private String username;

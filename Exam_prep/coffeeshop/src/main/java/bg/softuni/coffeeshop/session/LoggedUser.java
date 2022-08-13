@@ -7,9 +7,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class LoggedUser {
-
     private long id;
-
     private String username;
 
     public void login(User user) {

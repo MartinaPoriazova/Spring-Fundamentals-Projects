@@ -2,12 +2,11 @@ package bg.softuni.coffeeshop.model.entity;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "users")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -28,7 +27,7 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "employee", targetEntity = Order.class, fetch = FetchType.EAGER)
-    private Set<Order> orders;
+    private List<Order> orders;
 
     public User() {
     }
@@ -87,11 +86,11 @@ public class User {
         return this;
     }
 
-    public Set<Order> getOrders() {
+    public List<Order> getOrders() {
         return orders;
     }
 
-    public User setOrders(Set<Order> orders) {
+    public User setOrders(List<Order> orders) {
         this.orders = orders;
         return this;
     }
