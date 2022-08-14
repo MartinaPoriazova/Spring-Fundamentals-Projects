@@ -80,4 +80,8 @@ public class AuthService {
     public boolean existsByEmail(String email) {
         return this.userRepository.existsByEmail(email);
     }
+
+    public User findById(long id) {
+        return userRepository.findById(id).get();
+    }
 }
