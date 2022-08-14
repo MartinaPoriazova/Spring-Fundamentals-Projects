@@ -8,6 +8,9 @@ import bg.softuni.coffeeshop.repository.UserRepository;
 import bg.softuni.coffeeshop.session.LoggedUser;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
@@ -37,5 +40,13 @@ public class OrderService {
         order.setEmployee(employee);
 
         this.orderRepository.save(order);
+    }
+
+    public void readyOrder(Long id) {
+        this.orderRepository.deleteById(id);
+    }
+
+    public List<Order> findAllSorted() {
+        return this.orderRepository.findByOrderByPriceDesc();
     }
 }

@@ -94,4 +94,8 @@ public class User {
         this.orders = orders;
         return this;
     }
+
+    public int getOrderSize(){
+        return this.orders.size();
+    }
 }

@@ -28,16 +28,16 @@ public class OrderController {
     }
 
     @GetMapping("/order-add")
-    public String register() {
+    public String addOrder() {
         if (!this.authService.isLoggedIn()) {
-            return "redirect:/";
+            return "redirect:/index";
         }
 
         return "order-add";
     }
 
-    @PostMapping("/offer-add")
-    public String addOffer(@Valid AddOrderDTO addOrderDTO,
+    @PostMapping("/order-add")
+    public String addOrder(@Valid AddOrderDTO addOrderDTO,
                            BindingResult bindingResult,
                            RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
@@ -45,7 +45,7 @@ public class OrderController {
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.addOrderDTO", bindingResult);
 
-            return "redirect:/offer-add";
+            return "redirect:/order-add";
         }
 
         this.orderService.addOrder(addOrderDTO);

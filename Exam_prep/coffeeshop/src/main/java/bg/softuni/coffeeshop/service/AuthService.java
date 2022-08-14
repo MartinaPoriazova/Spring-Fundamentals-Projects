@@ -8,6 +8,7 @@ import bg.softuni.coffeeshop.session.LoggedUser;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -83,5 +84,10 @@ public class AuthService {
 
     public User findById(long id) {
         return userRepository.findById(id).get();
+    }
+
+
+    public List<User> findAllUsersWithOrdersSortedByOrderCount() {
+        return this.userRepository.findByOrdersOrderByOrdersSize();
     }
 }

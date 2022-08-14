@@ -1,5 +1,6 @@
 package bg.softuni.coffeeshop.web;
 
+import bg.softuni.coffeeshop.model.dto.AddOrderDTO;
 import bg.softuni.coffeeshop.model.entity.Order;
 import bg.softuni.coffeeshop.service.AuthService;
 import bg.softuni.coffeeshop.service.OrderService;
@@ -15,40 +16,38 @@ import java.util.List;
 public class HomeController {
     private final AuthService authService;
     private final OrderService orderService;
-    private final LoggedUser userSession;
 
-    public HomeController(AuthService authService, OrderService orderService, LoggedUser userSession) {
+    public HomeController(AuthService authService, OrderService orderService) {
         this.authService = authService;
         this.orderService = orderService;
-        this.userSession = userSession;
     }
 
     @GetMapping("/home")
     public String home(Model model) {
-        if (this.authService.isLoggedIn()) {
-            return "redirect:/";
+        if (!this.authService.isLoggedIn()) {
+            return "redirect:/index";
         }
-//
-//        List<Order> orders = this.orderService.findAllOrdersSorted();
-//
-//        if (!model.containsAttribute("orders")) {
-//            model.addAttribute("orders", orders);
-//            model.addAttribute("totalTimeForCompletion",
-//                    orders
-//                            .stream()
-//                            .map(or -> or.getCategory().getNeededTime())
-//                            .reduce(Integer::sum)
-//                            .orElse(0));
-//
-//            model.addAttribute("employees", this.authService.findAllUsersWithOrdersSortedByOrderCount());
-//        }
+
+        List<Order> orders = this.orderService.findAllSorted();
+
+        if (!model.containsAttribute("orders")) {
+            model.addAttribute("orders", orders);
+            model.addAttribute("totalTimeForCompletion",
+                    orders
+                            .stream()
+                            .map(or -> or.getCategory().getNeededTime())
+                            .reduce(Integer::sum)
+                            .orElse(0));
+
+            model.addAttribute("employees", this.authService.findAllUsersWithOrdersSortedByOrderCount());
+        }
 
         return "home";
     }
 
     @GetMapping("/orders/ready/{id}")
     public String orderReady(@PathVariable Long id) {
-//        this.orderService.readyOrder(id);
+        this.orderService.readyOrder(id);
         return "redirect:/home";
     }
 }
