@@ -16,8 +16,8 @@ public class AddOrderDTO {
     private String name;
 
     @Positive
-    private BigDecimal price
-            ;
+    private BigDecimal price;
+
     @PastOrPresent
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime orderTime;
@@ -46,7 +46,7 @@ public class AddOrderDTO {
         return price;
     }
 
-    public AddOrderDTO setPrice(BigDecimal price) {
+    public AddOrderDTO setPrice() {
         this.price = price;
         return this;
     }

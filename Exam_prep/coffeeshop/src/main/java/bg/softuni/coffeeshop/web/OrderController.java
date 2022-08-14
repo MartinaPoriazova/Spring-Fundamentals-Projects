@@ -3,7 +3,6 @@ package bg.softuni.coffeeshop.web;
 import bg.softuni.coffeeshop.model.dto.AddOrderDTO;
 import bg.softuni.coffeeshop.service.AuthService;
 import bg.softuni.coffeeshop.service.OrderService;
-import bg.softuni.coffeeshop.session.LoggedUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +16,10 @@ import javax.validation.Valid;
 public class OrderController {
     private final AuthService authService;
     private final OrderService orderService;
-    private final LoggedUser loggedUser;
 
-    public OrderController(AuthService authService, OrderService orderService, LoggedUser loggedUser) {
+    public OrderController(AuthService authService, OrderService orderService) {
         this.authService = authService;
         this.orderService = orderService;
-        this.loggedUser = loggedUser;
     }
 
     @ModelAttribute("addOrderDTO")
@@ -32,7 +29,7 @@ public class OrderController {
 
     @GetMapping("/order-add")
     public String register() {
-        if (this.authService.isLoggedIn()) {
+        if (!this.authService.isLoggedIn()) {
             return "redirect:/";
         }
 
@@ -43,10 +40,7 @@ public class OrderController {
     public String addOffer(@Valid AddOrderDTO addOrderDTO,
                            BindingResult bindingResult,
                            RedirectAttributes redirectAttributes) {
-
-
         if (bindingResult.hasErrors()) {
-
             redirectAttributes.addFlashAttribute("addOrderDTO", addOrderDTO);
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.addOrderDTO", bindingResult);
