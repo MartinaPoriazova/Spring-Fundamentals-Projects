@@ -24,9 +24,9 @@ public class CategoryService {
                                 Category category = new Category();
                                 category.setName(categoryTypeEnum);
                                 switch (categoryTypeEnum) {
+                                    case COFFEE -> category.setNeededTime(2);
                                     case CAKE -> category.setNeededTime(10);
                                     case DRINK -> category.setNeededTime(1);
-                                    case COFFEE -> category.setNeededTime(2);
                                     case OTHER -> category.setNeededTime(5);
                                 }
                                 return category;
