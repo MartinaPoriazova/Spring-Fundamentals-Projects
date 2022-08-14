@@ -55,22 +55,19 @@ public class AuthController {
             return "redirect:/register";
         }
 
-
-//        // unique username
 //        if (authService.existsByUsername(registerDTO.getUsername())) {
 //            redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
 //            redirectAttributes.addFlashAttribute("isUsernameTaken", true);
-//            return "redirect:register";
+//            return "redirect:/register";
 //        }
-//        // unique email
 //
 //        if (authService.existsByEmail(registerDTO.getEmail())) {
 //            redirectAttributes.addFlashAttribute("registerDTO", registerDTO);
 //            redirectAttributes.addFlashAttribute("isEmailTaken", true);
-//            return "redirect:register";
+//            return "redirect:/register";
 //        }
-//
-//        authService.registerUser(registerDTO);
+
+
 
         return "redirect:/login";
     }
