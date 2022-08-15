@@ -15,7 +15,7 @@ public class Category {
     @Column(unique = true, nullable = false)
     private CategoryTypeEnum name;
 
-    @Column(columnDefinition = "text", nullable = false)
+    @Column(columnDefinition = "text")
     private String description;
 
     public Category() {
@@ -43,5 +43,12 @@ public class Category {
         return this;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public Category setDescription(String description) {
+        this.description = description;
+        return this;
+    }
 }
