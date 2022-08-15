@@ -1,6 +1,6 @@
 package bg.softuni.shoppinglist.repository;
 
-import bg.softuni.shoppinglist.model.User;
+import bg.softuni.shoppinglist.model.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package bg.softuni.shoppinglist.session;
 
-import bg.softuni.shoppinglist.model.User;
+import bg.softuni.shoppinglist.model.entity.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 

@@ -1,4 +1,4 @@
-package bg.softuni.shoppinglist.model;
+package bg.softuni.shoppinglist.model.entity;
 
 
 import javax.persistence.*;
@@ -56,15 +56,5 @@ public class User {
     public User setEmail(String email) {
         this.email = email;
         return this;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                '}';
     }
 }
