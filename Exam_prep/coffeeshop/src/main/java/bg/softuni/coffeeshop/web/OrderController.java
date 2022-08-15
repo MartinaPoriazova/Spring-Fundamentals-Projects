@@ -33,7 +33,7 @@ public class OrderController {
             return "redirect:/index";
         }
 
-        return "order-add";
+        return "/order-add";
     }
 
     @PostMapping("/order-add")
