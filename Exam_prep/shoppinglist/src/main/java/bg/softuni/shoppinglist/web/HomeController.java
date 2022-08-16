@@ -5,11 +5,7 @@ import bg.softuni.shoppinglist.model.enums.CategoryTypeEnum;
 import bg.softuni.shoppinglist.service.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import org.springframework.web.bind.annotation.GetMapping;
-
-
-import javax.validation.Valid;
 
 @Controller
 public class HomeController {
@@ -28,6 +24,4 @@ public class HomeController {
         model.addAttribute("others", productService.findProductsByCategory(CategoryTypeEnum.OTHER, productDTO));
         return "/home";
     }
-
-
 }
