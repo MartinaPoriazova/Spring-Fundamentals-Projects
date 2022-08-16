@@ -101,7 +101,7 @@ public class AuthController {
 
             return "redirect:/login";
         }
-
+        this.authService.login(loginDTO.getUsername());
         return "redirect:/home";
     }
 

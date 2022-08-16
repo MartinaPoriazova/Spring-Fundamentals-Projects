@@ -56,4 +56,11 @@ public class AuthService {
     public void logout() {
         this.currentUser.logout();
     }
+
+    public void login(String username) {
+        User user = this.userService.getUserByUsername(username);
+        this.currentUser
+                .setId(user.getId())
+                .setUsername(user.getUsername());
+    }
 }
