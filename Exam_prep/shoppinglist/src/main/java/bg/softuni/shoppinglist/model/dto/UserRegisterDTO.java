@@ -1,23 +1,28 @@
 package bg.softuni.shoppinglist.model.dto;
 
+import bg.softuni.shoppinglist.model.validation.UniqueEmail;
+import bg.softuni.shoppinglist.model.validation.UniqueUsername;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 public class UserRegisterDTO {
-    @Size(min = 3, max = 20)
+    @UniqueUsername(message = "This username is already taken")
+    @Size(min = 3, max = 20, message = "Username length must be between 3 and 20 characters!")
     @NotBlank
     private String username;
 
-    @Email
+    @UniqueEmail(message = "This email is already taken")
+    @Email(message = "Enter a valid email")
     @NotBlank
     private String email;
 
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20 characters!")
     @NotBlank
     private String password;
 
-    @Size(min = 3, max = 20)
+    @Size(min = 3, max = 20, message = "Password length must be between 3 and 20 characters!")
     @NotBlank
     private String confirmPassword;
 
