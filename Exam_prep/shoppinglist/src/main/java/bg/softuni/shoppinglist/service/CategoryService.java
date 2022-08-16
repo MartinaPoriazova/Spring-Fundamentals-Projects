@@ -26,4 +26,8 @@ public class CategoryService {
             this.categoryRepository.saveAll(categories);
         }
     }
+
+    public Category findCategoryByName(CategoryTypeEnum name) {
+        return categoryRepository.findByName(name);
+    }
 }

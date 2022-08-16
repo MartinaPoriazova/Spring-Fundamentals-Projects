@@ -1,6 +1,8 @@
 package bg.softuni.shoppinglist.service;
 
+import bg.softuni.shoppinglist.model.dto.AddProductDTO;
 import bg.softuni.shoppinglist.model.dto.ProductDTO;
+import bg.softuni.shoppinglist.model.entity.Category;
 import bg.softuni.shoppinglist.model.entity.Product;
 import bg.softuni.shoppinglist.model.enums.CategoryTypeEnum;
 import bg.softuni.shoppinglist.model.mapper.ProductMapper;
@@ -32,5 +34,13 @@ public class ProductService {
 
     public BigDecimal getTotalProductsPrice() {
         return productRepository.findTotalPriceSum();
+    }
+
+    public void addProduct(AddProductDTO addProductDTO) {
+        Product newProduct = productMapper.addProductDTOToProduct(addProductDTO);
+        Category category = categoryService.findCategoryByName(addProductDTO.getCategory().getName());
+        newProduct.setCategory(category);
+
+        productRepository.save(newProduct);
     }
 }
